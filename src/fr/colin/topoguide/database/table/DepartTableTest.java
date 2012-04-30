@@ -4,7 +4,6 @@ import static fr.colin.topoguide.util.builder.DepartBuilder.aDepart;
 import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
 import fr.colin.topoguide.database.DatabaseOpenHelper;
-import fr.colin.topoguide.database.table.DepartTable;
 import fr.colin.topoguide.model.Depart;
 
 public class DepartTableTest extends AndroidTestCase {
@@ -48,5 +47,21 @@ public class DepartTableTest extends AndroidTestCase {
       
       assertFalse(fetchedDepart.isUnknown());
       assertEquals(expectedDepart, fetchedDepart);
+   }
+   
+   public void testGetDepartReturnUnknownDepartIfNotInDB() {
+
+      Depart depart = departTable.get(aDepart().build());
+
+      assertTrue(depart.isUnknown());
+   }
+
+   public void testGetDepartReturnDepartInDBIfSame() {
+      Depart depart = aDepart().build();
+      depart.id = departTable.add(depart);
+      
+      Depart fetchedDepart = departTable.get(depart);
+
+      assertEquals(depart, fetchedDepart);
    }
 }

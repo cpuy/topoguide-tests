@@ -71,4 +71,13 @@ public class LocalTopoGuideRepositoryTest extends AndroidTestCase {
 
       assertEquals(createdTopo, fetchedTopo);
    }
+   
+   public void testCreateTopoDontInsertNewDepartAndSommetIfAlreadyExistingInDB() throws Exception {
+      TopoGuide firstTopo = localTopoGuideRepository.create(aTopoGuide().build());
+      
+      TopoGuide secondTopoGuide = localTopoGuideRepository.create(aTopoGuide().build());
+      
+      assertEquals(secondTopoGuide.sommet, firstTopo.sommet);
+      assertEquals(secondTopoGuide.depart, firstTopo.depart);
+   }
 }

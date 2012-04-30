@@ -57,7 +57,7 @@ public class SommetTableTest extends AndroidTestCase {
       assertTrue(sommet.isUnknown());
    }
 
-   public void testFindSameReturnSommetInDBIfSame() {
+   public void testGetSommetReturnSommetInDBIfSame() {
       Sommet sommet = aSommet().build();
       sommet.id = sommetTable.add(sommet);
       
