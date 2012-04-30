@@ -12,6 +12,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import android.test.InstrumentationTestCase;
+import fr.colin.topoguide.html.SkitourPageParser;
 import fr.colin.topoguide.model.Depart;
 import fr.colin.topoguide.model.Itineraire;
 import fr.colin.topoguide.model.Sommet;
