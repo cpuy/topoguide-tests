@@ -30,7 +30,7 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
             getInstrumentation().getContext().getResources().openRawResource(R.raw.grande_sure_139),
             "ISO-8859-1", "http://www.skitour.fr/topos/,139.html");
       
-      skitourParser = new SkitourPageParser(grandeSure, 139);
+      skitourParser = new SkitourPageParser(grandeSure);
    }
 
    /** */
@@ -167,7 +167,6 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
       TopoGuide topo = skitourParser.createTopoGuideWithGeneralInformations();
 
       assertEquals("Grande Sure, Par le Col de la Charmille", topo.nom);
-      assertEquals("139", topo.numero);
       assertEquals("Pas de remarques", topo.remarques);
    }
    
@@ -181,7 +180,6 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
       assertEquals(skitourParser.parseSommet(), topo.sommet);
       assertEquals(skitourParser.parseVariantes(), topo.variantes);
       assertEquals("Grande Sure, Par le Col de la Charmille", topo.nom);
-      assertEquals("139", topo.numero);
       assertEquals("Pas de remarques", topo.remarques);
    }
    

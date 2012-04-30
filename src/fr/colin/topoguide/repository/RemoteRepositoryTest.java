@@ -7,11 +7,11 @@ import fr.colin.topoguide.model.TopoGuide;
 public class RemoteRepositoryTest extends TestCase {
 
    public void testSimple() throws Exception {
-      
-      TopoGuide topo = skitour().fetchTopoById(139L);
+      long expectedTopoNumero = 139L;
+      TopoGuide topo = skitour().fetchTopoById(expectedTopoNumero);
       
       assertNotNull(topo);
-      assertEquals(topo.numero, "139");
+      assertEquals(topo.numero, expectedTopoNumero);
       assertEquals(topo.nom, "Grande Sure, Par le Col de la Charmille");
    }
 }

@@ -16,7 +16,7 @@ public class TopoGuideBuilder {
 
    private long id = -1L;
    private String nom = "Grande Sure, Par le Col de la Charmille";
-   private String numero = "139";
+   private long numero = 139L;
    private String remarques = "Pas de remarque particulière";
    private Sommet sommet = aSommet().build();
    private Depart depart = aDepart().build();
