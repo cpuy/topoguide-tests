@@ -1,10 +1,9 @@
 package fr.colin.topoguide.util.builder;
 
-import static fr.colin.topoguide.model.Itineraire.Orientation.N;
-import static fr.colin.topoguide.model.Itineraire.Type.ALLER_RETOUR;
+import static fr.colin.topoguide.model.enums.Orientation.N;
 import fr.colin.topoguide.model.Itineraire;
-import fr.colin.topoguide.model.Itineraire.Orientation;
-import fr.colin.topoguide.model.Itineraire.Type;
+import fr.colin.topoguide.model.Type;
+import fr.colin.topoguide.model.enums.Orientation;
 
 public class ItineraireBuilder {
 
@@ -23,7 +22,7 @@ public class ItineraireBuilder {
    private int exposition = 1;
    private int pente = 30;
    private int dureeJour = 1;
-   private Type type = ALLER_RETOUR;
+   private Type type = Type.ALLER_RETOUR;
    private long topoId = -1L;
    private boolean variante = false;
    

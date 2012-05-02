@@ -1,9 +1,8 @@
 package fr.colin.topoguide.html;
 
-import static fr.colin.topoguide.model.Itineraire.Orientation.N;
-import static fr.colin.topoguide.model.Itineraire.Orientation.NW;
-import static fr.colin.topoguide.model.Itineraire.Orientation.W;
-import static fr.colin.topoguide.model.Itineraire.Type.ALLER_RETOUR;
+import static fr.colin.topoguide.model.enums.Orientation.N;
+import static fr.colin.topoguide.model.enums.Orientation.NW;
+import static fr.colin.topoguide.model.enums.Orientation.W;
 import static fr.colin.topoguide.util.builder.DepartBuilder.aDepart;
 import static fr.colin.topoguide.util.builder.ItineraireBuilder.aVariante;
 import static fr.colin.topoguide.util.builder.ItineraireBuilder.anItinerairePrincipal;
@@ -20,6 +19,7 @@ import fr.colin.topoguide.model.Depart;
 import fr.colin.topoguide.model.Itineraire;
 import fr.colin.topoguide.model.Sommet;
 import fr.colin.topoguide.model.TopoGuide;
+import fr.colin.topoguide.model.Type;
 import fr.colin.topoguide.views.test.R;
 
 public class SkitourPageParserTest extends InstrumentationTestCase {
@@ -139,7 +139,7 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
             + "dans un premier temps un collet au nord de celui-ci.";
       return anItinerairePrincipal().voie("Par le Col de la Charmille").orientation(N).denivele(1200)
             .difficulteSki("2.2").description(description).difficulteMontee("R").materiel("RAS")
-            .exposition(1).pente(30).type(ALLER_RETOUR).dureeJour(1).build();
+            .exposition(1).pente(30).type(Type.ALLER_RETOUR).dureeJour(1).build();
    }
 
    /** */

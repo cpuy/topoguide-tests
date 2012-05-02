@@ -1,10 +1,15 @@
 package fr.colin.topoguide.repository;
 
 import static fr.colin.topoguide.util.builder.ItineraireBuilder.aVariante;
+import static fr.colin.topoguide.util.builder.SommetBuilder.aSommet;
 import static fr.colin.topoguide.util.builder.TopoGuideBuilder.aTopoGuide;
+
+import java.util.List;
+
 import android.test.AndroidTestCase;
 import fr.colin.topoguide.model.Itineraire;
 import fr.colin.topoguide.model.TopoGuide;
+import fr.colin.topoguide.model.view.TopoListItem;
 
 public class LocalTopoGuideRepositoryTest extends AndroidTestCase {
 
@@ -79,5 +84,24 @@ public class LocalTopoGuideRepositoryTest extends AndroidTestCase {
       
       assertEquals(secondTopoGuide.sommet, firstTopo.sommet);
       assertEquals(secondTopoGuide.depart, firstTopo.depart);
+   }
+   
+   public void testFetchAllTopoListItems() throws Exception {
+      TopoGuide firstTopo = localTopoGuideRepository.create(
+            aTopoGuide().nom("Grande Sure, Par le Col de la Charmille")
+            .withSommet(aSommet().massif("Chartreuse").build())
+            .build());
+      TopoGuide secondTopo = localTopoGuideRepository.create(
+            aTopoGuide().nom("Grand Colon, Face Nord")
+            .withSommet(aSommet().massif("Belledonne").build())
+            .build());
+      
+      List<TopoListItem> items = localTopoGuideRepository.fetchAllTopoListItems();
+      
+      assertEquals(2, items.size());
+      assertEquals(firstTopo.nom, items.get(0).nom);
+      assertEquals(firstTopo.sommet.massif, items.get(0).massif);
+      assertEquals(secondTopo.nom, items.get(1).nom);
+      assertEquals(secondTopo.sommet.massif, items.get(1).massif);
    }
 }

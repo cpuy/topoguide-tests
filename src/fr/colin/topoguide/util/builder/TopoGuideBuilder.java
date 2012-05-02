@@ -43,6 +43,11 @@ public class TopoGuideBuilder {
       return this;
    }
    
+   public TopoGuideBuilder nom(String nom) {
+      this.nom = nom;
+      return this;
+   }
+   
    public TopoGuide build() {
       TopoGuide topo = new TopoGuide();
       topo.id = id;
