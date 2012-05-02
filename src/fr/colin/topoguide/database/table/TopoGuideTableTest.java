@@ -59,7 +59,6 @@ public class TopoGuideTableTest extends AndroidTestCase {
       assertEquals(topo.nom, fetchedTopoGuide.nom);
       assertEquals(topo.numero, fetchedTopoGuide.numero);
       assertEquals(topo.remarques, fetchedTopoGuide.remarques);
-      assertEquals(topo.type, fetchedTopoGuide.type);
       assertEquals(topo.sommet.id, fetchedTopoGuide.sommet.id);
       assertEquals(topo.depart.id, fetchedTopoGuide.depart.id);
    }

@@ -1,12 +1,16 @@
 package fr.colin.topoguide.util.builder;
 
+import static fr.colin.topoguide.model.Itineraire.Orientation.N;
+import static fr.colin.topoguide.model.Itineraire.Type.ALLER_RETOUR;
 import fr.colin.topoguide.model.Itineraire;
+import fr.colin.topoguide.model.Itineraire.Orientation;
+import fr.colin.topoguide.model.Itineraire.Type;
 
 public class ItineraireBuilder {
 
    private long id = -1L;
    private String voie = "Par le Col de la Charmille";
-   private String orientation = "N";
+   private Orientation orientation = N;
    private int denivele = 1200;
    private String difficulteSki = "2.2";
    private String difficulteMontee = "R";
@@ -19,6 +23,7 @@ public class ItineraireBuilder {
    private int exposition = 1;
    private int pente = 30;
    private int dureeJour = 1;
+   private Type type = ALLER_RETOUR;
    private long topoId = -1L;
    private boolean variante = false;
    
@@ -49,7 +54,7 @@ public class ItineraireBuilder {
       return this;
    }
    
-   public ItineraireBuilder orientation(String orientation) {
+   public ItineraireBuilder orientation(Orientation orientation) {
       this.orientation = orientation;
       return this;
    }
@@ -84,6 +89,11 @@ public class ItineraireBuilder {
       return this;
    }
    
+   public ItineraireBuilder type(Type type) {
+      this.type = type;
+      return this;
+   }
+   
    public Itineraire build() {
       Itineraire itineraire;
       if (variante) {
@@ -102,6 +112,7 @@ public class ItineraireBuilder {
       itineraire.exposition = exposition;
       itineraire.pente = pente;
       itineraire.dureeJour = dureeJour;
+      itineraire.type = type;
       itineraire.topoId = topoId;
       return itineraire;
    }

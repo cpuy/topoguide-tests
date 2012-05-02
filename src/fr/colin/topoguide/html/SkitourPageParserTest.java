@@ -1,5 +1,9 @@
 package fr.colin.topoguide.html;
 
+import static fr.colin.topoguide.model.Itineraire.Orientation.N;
+import static fr.colin.topoguide.model.Itineraire.Orientation.NW;
+import static fr.colin.topoguide.model.Itineraire.Orientation.W;
+import static fr.colin.topoguide.model.Itineraire.Type.ALLER_RETOUR;
 import static fr.colin.topoguide.util.builder.DepartBuilder.aDepart;
 import static fr.colin.topoguide.util.builder.ItineraireBuilder.aVariante;
 import static fr.colin.topoguide.util.builder.ItineraireBuilder.anItinerairePrincipal;
@@ -12,7 +16,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import android.test.InstrumentationTestCase;
-import fr.colin.topoguide.html.SkitourPageParser;
 import fr.colin.topoguide.model.Depart;
 import fr.colin.topoguide.model.Itineraire;
 import fr.colin.topoguide.model.Sommet;
@@ -91,7 +94,7 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
             + "eventuellement jusqu'au Chalet de Jusson. casque / pioche /crabes / 1 bout de ficelou pas "
             + "forcément inutile";
       return aVariante().voie("Couloir de Jusson en A/R").denivele(1600).difficulteSki("5.1")
-            .orientation("W").description(description).build();
+            .orientation(W).description(description).build();
    }
 
    private Itineraire expectedVariante2() {
@@ -101,7 +104,7 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
       		" puis vers 1400 m tirer à droite pour rejoindre la route forestière de la None . Redescendre " +
       		"selon les conditions en coupant dans la forêt, où en utilisant la route bien descendante.";
       return aVariante().voie("Huit des Charmilles").denivele(1350).difficulteSki("3.2")
-            .orientation("NW").description(description).build();
+            .orientation(NW).description(description).build();
    }
 
    /** */
@@ -134,9 +137,9 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
             + "poursuivre jusqu'au Col de la Charmille (1605). Au col, partir en traversée vers le sud-est et "
             + "rejoindre le Col de la Sure (1675). Du col, rejoindre le sommet de la grande Sure en visant "
             + "dans un premier temps un collet au nord de celui-ci.";
-      return anItinerairePrincipal().voie("Par le Col de la Charmille").orientation("N").denivele(1200)
+      return anItinerairePrincipal().voie("Par le Col de la Charmille").orientation(N).denivele(1200)
             .difficulteSki("2.2").description(description).difficulteMontee("R").materiel("RAS")
-            .exposition(1).pente(30).dureeJour(1).build();
+            .exposition(1).pente(30).type(ALLER_RETOUR).dureeJour(1).build();
    }
 
    /** */
@@ -157,6 +160,7 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
       assertEquals(expected.materiel, actual.materiel);
       assertEquals(expected.exposition, actual.exposition);
       assertEquals(expected.pente, actual.pente);
+      assertEquals(expected.type, actual.type);
       assertEquals(expected.dureeJour, actual.dureeJour);
       assertFalse(actual.isVariante());
    }
