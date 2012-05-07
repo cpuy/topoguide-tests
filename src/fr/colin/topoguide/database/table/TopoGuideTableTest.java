@@ -47,8 +47,8 @@ public class TopoGuideTableTest extends AndroidTestCase {
    }
 
    public void testFindById() throws Exception {
-      TopoGuide topo = aTopoGuide().withSommet(aSommet().id(1L).build())
-            .withDepart(aDepart().id(1L).build())
+      TopoGuide topo = aTopoGuide().sommet(aSommet().id(1L).build())
+            .depart(aDepart().id(1L).build())
             .build();
       topo.id = topoGuideTable.add(topo);
       

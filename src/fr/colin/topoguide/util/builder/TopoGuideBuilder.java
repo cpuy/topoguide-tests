@@ -28,17 +28,17 @@ public class TopoGuideBuilder {
       return new TopoGuideBuilder();
    }
    
-   public TopoGuideBuilder withSommet(Sommet sommet) {
+   public TopoGuideBuilder sommet(Sommet sommet) {
       this.sommet = sommet;
       return this;
    }
    
-   public TopoGuideBuilder withDepart(Depart depart) {
+   public TopoGuideBuilder depart(Depart depart) {
       this.depart = depart;
       return this;
    }
    
-   public TopoGuideBuilder withVariante(Itineraire variante) {
+   public TopoGuideBuilder variante(Itineraire variante) {
       this.variantes.add(variante);
       return this;
    }
@@ -47,6 +47,12 @@ public class TopoGuideBuilder {
       this.nom = nom;
       return this;
    }
+   
+   public TopoGuideBuilder id(long id) {
+      this.id = id;
+      return this;
+   }
+   
    
    public TopoGuide build() {
       TopoGuide topo = new TopoGuide();

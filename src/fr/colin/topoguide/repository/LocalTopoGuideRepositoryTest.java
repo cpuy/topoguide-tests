@@ -30,7 +30,7 @@ public class LocalTopoGuideRepositoryTest extends AndroidTestCase {
    }
 
    public void testCreateTopoGuide() throws Exception {
-      TopoGuide topo = aTopoGuide().withVariante(aVariante().build()).build();
+      TopoGuide topo = aTopoGuide().variante(aVariante().build()).build();
       
       TopoGuide createdTopo = localTopoGuideRepository.create(topo);
 
@@ -69,7 +69,7 @@ public class LocalTopoGuideRepositoryTest extends AndroidTestCase {
    }
 
    public void testFindTopoById() throws Exception {
-      TopoGuide topo = aTopoGuide().withVariante(aVariante().build()).build();
+      TopoGuide topo = aTopoGuide().variante(aVariante().build()).build();
       TopoGuide createdTopo = localTopoGuideRepository.create(topo);
       
       TopoGuide fetchedTopo = localTopoGuideRepository.findTopoById(createdTopo.id);
@@ -89,11 +89,11 @@ public class LocalTopoGuideRepositoryTest extends AndroidTestCase {
    public void testFetchAllTopoListItems() throws Exception {
       TopoGuide firstTopo = localTopoGuideRepository.create(
             aTopoGuide().nom("Grande Sure, Par le Col de la Charmille")
-            .withSommet(aSommet().massif("Chartreuse").build())
+            .sommet(aSommet().massif("Chartreuse").build())
             .build());
       TopoGuide secondTopo = localTopoGuideRepository.create(
             aTopoGuide().nom("Grand Colon, Face Nord")
-            .withSommet(aSommet().massif("Belledonne").build())
+            .sommet(aSommet().massif("Belledonne").build())
             .build());
       
       List<TopoListItem> items = localTopoGuideRepository.fetchAllTopoListItems();

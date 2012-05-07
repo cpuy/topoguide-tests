@@ -1,4 +1,4 @@
-package fr.colin.topoguide.Model;
+package fr.colin.topoguide.model;
 
 import static fr.colin.topoguide.util.builder.DepartBuilder.aDepart;
 import static fr.colin.topoguide.util.builder.ItineraireBuilder.aVariante;

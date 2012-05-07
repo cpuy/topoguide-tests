@@ -183,6 +183,7 @@ public class SkitourPageParserTest extends InstrumentationTestCase {
       assertEquals(skitourParser.parseItineraire(), topo.itineraire);
       assertEquals(skitourParser.parseSommet(), topo.sommet);
       assertEquals(skitourParser.parseVariantes(), topo.variantes);
+      assertEquals(skitourParser.parseImagesUrls(), topo.imageUrls);
       assertEquals("Grande Sure, Par le Col de la Charmille", topo.nom);
       assertEquals("Pas de remarques", topo.remarques);
    }
