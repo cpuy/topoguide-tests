@@ -90,4 +90,8 @@ public class ImageRepositoryTest extends InstrumentationTestCase {
       assertNotNull(image);
       assertTrue(sameHeightAndWidth(getBitmap(R.raw.sure2), image));
    }
+   
+   public void testGetWhenSdNotMountedThrowException() throws Exception {
+     // Pas trouvé comment simuler umount sd par les tests .... pas cool      
+   }
 }
